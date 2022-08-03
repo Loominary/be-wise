@@ -1,0 +1,22 @@
+<!-- <div>
+<table class="table">
+    <thead>
+       Lecturers
+    </thead>
+    <tbody>
+        <tr *ngFor="let lecturer of lecturers">
+            <td>{{lecturer.name}}</td>
+            <td>{{lecturer.surname}}</td>
+            <td>{{lecturer.email}}</td>
+            <td>{{lecturer.created}}</td>
+            <td>{{lecturer.phone}}</td>
+            <td>{{lecturer.image}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+ -->
+<div class="card" style="width: 18rem;" *ngFor="let lecturer of lecturers">
+    <app-profile-card [lecturer]="lecturer"></app-profile-card>
+  </div>
+

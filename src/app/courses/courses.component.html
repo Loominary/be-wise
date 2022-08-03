@@ -1,0 +1,185 @@
+<div class="section-bg p-3">
+
+  <div class="d-flex mb-4">
+    <div class="me-auto p-2">
+        <div class="input-group">
+            <input (keydown)="findCourse($event)" [(ngModel)]="searchFieldValue"
+                type="text" placeholder="Search by category"
+                class="form-control">
+            <button (click)="clearSearch()" class="btn btn-outline-secondary" type="button"
+                id="button-addon2">Clear</button>
+        </div>
+    </div>
+    <div class="p-2">
+        <app-export (buttonClicked)="exportCoursesData()"></app-export>
+    </div>
+  </div>
+    <div>
+<table class="table">
+    <thead>
+       Courses
+       <tr>
+        <th>Name
+          <button (click)="sortCourses('name')" class="btn btn-default">
+            <i>a</i>
+          </button>
+          
+        </th>
+        <th>Price
+          <button (click)="sortCourses('price')" class="btn btn-default">
+            <i>a</i>
+        </button>
+        </th>
+       </tr>
+    </thead>
+    <tbody  *ngFor="let course of courses">
+        <tr>
+            <td>[{{course.course_code}}]&nbsp;{{course.name}}</td>
+            <td>{{course.price}}</td>
+            <td> <button type="button" data-bs-toggle="collapse"
+              [attr.data-bs-target]="'#collapse'+course.id" [attr.aria-controls]="'collapse'+course.id" aria-expanded="true" aria-controls="collapse">
+               <td>Click for more details</td>
+            </button>
+        </td>
+
+            
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div [attr.id]="'collapse'+course.id" class="accordion-collapse collapse"
+            data-bs-parent="#accordionExample" [attr.aria-labelledby]="'heading'+course.id">
+             <div class="accordion-body">
+              <p><b>Start Date:</b> {{course.start_date | date}}</p>
+              <p><b>Number of Classes:</b> {{course.lessons}}</p>
+              <p><b>Category:</b> {{course.category}}</p>
+              <p><b>Course Description:</b> {{course.description}}</p>
+              <p><b>Lecturer:</b> {{course.lecturer}}</p>
+              <a href="">See more courses from this lecturer</a>
+             </div>
+           </div>
+    </td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+
+<table class="table">
+  <thead>
+      <tr>
+          <th>
+              Name
+              <button (click)="sortCourses('name')" class="btn btn-default">
+                  <i>a</i>
+              </button>
+          </th>
+          <th>
+              Email
+              <button (click)="sortCourses('price')" class="btn btn-default">
+                  <i>a</i>
+              </button>
+          </th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let course of courses">
+          <td>{{course.name}}</td>
+          <td>{{course.price}}</td>
+          <td>{{course.category}}</td>
+          <td>{{course.description}}</td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+
+
+<!-- 
+<div id="theSacredTable">
+<table class="table">
+  <thead>
+    Courses
+    <tr>
+     <th>Code & Name</th>
+     <th>Price</th>
+     <th>Details</th>
+    </tr>
+ </thead>
+<tbody>
+  <tr *ngFor="let course of courses">
+    <td>{{course.course_code}}&nbsp;{{course.name}}</td>
+    <td>{{course.price}}</td>
+    <td> <button type="button" data-bs-toggle="collapse"
+      [attr.data-bs-target]="'#collapse'+course.id" [attr.aria-controls]="'collapse'+course.id" aria-expanded="true" aria-controls="collapse">
+       <td>Click for more details</td>
+    </button>
+    
+    <ul [attr.id]="'collapse'+course.id" class="accordion-collapse collapse"
+    data-bs-parent="#accordionExample" [attr.aria-labelledby]="'heading'+course.id">
+      <li class="accordion-body">
+        <p>{{course.description}}</p>
+      </li>
+    </ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div> -->
+
+
+
+
+
+<!-- <table class="table">
+    <thead>
+      Courses
+      <tr>
+       <th>Name
+         <button (click)="sortCourses('name')" class="btn btn-default"><i>a</i></button>
+         
+       </th>
+       <th>Price
+        <button (click)="sortCourses('price')" class="btn btn-default">
+          <i>a</i>
+        </button>
+       </th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let course of courses;">
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" [attr.id]="'heading'+course.id">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+         [attr.data-bs-target]="'#collapse'+course.id" [attr.aria-controls]="'collapse'+course.id" aria-expanded="true" aria-controls="collapse">
+          <td>{{course.course_code}}{{course.name}}</td>
+        </button>
+      </h2>
+
+      <div [attr.id]="'collapse'+course.id" class="accordion-collapse collapse"
+       data-bs-parent="#accordionExample" [attr.aria-labelledby]="'heading'+course.id">
+        <div class="accordion-body">
+           <div>
+            <p><b>Start Date:</b> {{course.start_date | date}}</p>
+            <p><b>Number of Classes:</b> {{course.lessons}}</p>
+            <p><b>Category:</b> {{course.category}}</p>
+            <p><b>Course Description:</b> {{course.description}}</p>
+            <p><b>Lecturer:</b> {{course.lecturer}}</p>
+            <a href="">See more courses from this lecturer</a>
+           </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </tr>
+   </tbody> 
+  </table>
+ -->
+
+
+
+
+
+
+
