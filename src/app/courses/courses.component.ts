@@ -15,8 +15,8 @@ export class CoursesComponent implements OnInit {
 
   lecturers!: Array<Lecturer>;
   courses!: Array<Course>;
-  tableSort!: CourseSort;
   searchFieldValue!: string;
+  tableSort!: CourseSort;
   searchTerm!: string;
 
   ngOnInit(): void {
@@ -64,6 +64,8 @@ findCourse(event: KeyboardEvent) {
           next: (data: Array<Course>) => { this.courses = data },
           error: (err) => console.error(err),
       })
+      
+      
   }
 }
 

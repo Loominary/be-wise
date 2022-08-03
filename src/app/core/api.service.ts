@@ -27,7 +27,9 @@ export class ApiService {
 }
 
 findCourse(searchTerm: string): Observable<Array<Course>> {
-  // return this.http.get<Array<Customer>>(`${environment.serverUrl}/customers/find?search=${searchTerm}`)
+  console.log('api find course', searchTerm);
+  
+   /* return this.http.get<Array<Course>>(`${environment.serverUrl}/courses/find?search=${searchTerm}`) */
   return this.GET<Array<Course>>(`courses/find?search=${searchTerm}`);
 }
 
